@@ -2,130 +2,53 @@
 <x-shop::layouts>
     <!-- Page Title -->
     <x-slot:title>
-        @lang('shop::app.home.contact.title')
+        Contact Us
     </x-slot>
 
-    <div class="container mt-8 max-1180:px-5 max-md:mt-6 max-md:px-4">
-        <!-- Form Container -->
-		<div class="m-auto w-full max-w-[870px] rounded-xl border border-zinc-200 p-16 px-[90px] max-md:px-8 max-md:py-8 max-sm:border-none max-sm:p-0">
-			<h1 class="font-dmserif text-4xl max-md:text-3xl max-sm:text-xl">
-                @lang('shop::app.home.contact.title')
+    <!-- Beautiful Page Not Available Hero Section -->
+    <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+        <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl rounded-3xl p-8 sm:p-12 md:p-16 transition-all duration-300">
+            
+            <!-- Animated / Styled Badge & Icon -->
+            <div class="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 mb-6 shadow-inner ring-8 ring-blue-50/50 dark:ring-blue-900/20">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+
+            <!-- Page Name Pill -->
+            <div class="mb-4">
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+                    Contact Us
+                </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4">
+                The page you are trying to reach is currently not available
             </h1>
 
-			<p class="mt-4 text-xl text-zinc-500 max-sm:mt-1 max-sm:text-sm">
-                @lang('shop::app.home.contact.about')
+            <!-- Supporting Text -->
+            <p class="text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed mb-8">
+                We are currently updating our store information and contact service channels to provide you with the best support experience. Please check back soon or return to the main store.
             </p>
 
-            <div class="mt-14 rounded max-sm:mt-8">
-                <!-- Contact Form -->
-                <x-shop::form :action="route('shop.home.contact_us.send_mail')">
-                    <!-- Name -->
-                    <x-shop::form.control-group>
-                        <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.home.contact.name')
-                        </x-shop::form.control-group.label>
+            <!-- Divider Line -->
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto mb-8 opacity-80"></div>
 
-                        <x-shop::form.control-group.control
-                            type="text"
-                            class="px-6 py-5 max-md:py-3 max-sm:py-3.5"
-                            name="name"
-                            rules="required"
-                            :value="old('name')"
-                            :label="trans('shop::app.home.contact.name')"
-                            :placeholder="trans('shop::app.home.contact.name')"
-                            :aria-label="trans('shop::app.home.contact.name')"
-                            aria-required="true"
-                        />
-
-                        <x-shop::form.control-group.error control-name="name" />
-                    </x-shop::form.control-group>
-
-                    <!-- Email -->
-                    <x-shop::form.control-group>
-                        <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.home.contact.email')
-                        </x-shop::form.control-group.label>
-
-                        <x-shop::form.control-group.control
-                            type="email"
-                            class="px-6 py-5 max-md:py-3 max-sm:py-3.5"
-                            name="email"
-                            rules="required|email"
-                            :value="old('email')"
-                            :label="trans('shop::app.home.contact.email')"
-                            :placeholder="trans('shop::app.home.contact.email')"
-                            :aria-label="trans('shop::app.home.contact.email')"
-                            aria-required="true"
-                        />
-
-                        <x-shop::form.control-group.error control-name="email" />
-                    </x-shop::form.control-group>
-
-                    <!-- Contact -->
-                    <x-shop::form.control-group>
-                        <x-shop::form.control-group.label>
-                            @lang('shop::app.home.contact.phone-number')
-                        </x-shop::form.control-group.label>
-
-                        <x-shop::form.control-group.control
-                            type="text"
-                            class="px-6 py-5 max-md:py-3 max-sm:py-3.5"
-                            name="contact"
-                            rules="phone"
-                            :value="old('contact')"
-                            :label="trans('shop::app.home.contact.phone-number')"
-                            :placeholder="trans('shop::app.home.contact.phone-number')"
-                            :aria-label="trans('shop::app.home.contact.phone-number')"
-                        />
-
-                        <x-shop::form.control-group.error control-name="contact" />
-                    </x-shop::form.control-group>
-
-                    <!-- Message -->
-                    <x-shop::form.control-group>
-                        <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.home.contact.desc')
-                        </x-shop::form.control-group.label>
-
-                        <x-shop::form.control-group.control
-                            type="textarea"
-                            class="px-6 py-5 max-md:py-3 max-sm:py-3.5"
-                            name="message"
-                            rules="required"
-                            :label="trans('shop::app.home.contact.message')"
-                            :placeholder="trans('shop::app.home.contact.describe-here')"
-                            :aria-label="trans('shop::app.home.contact.message')"
-                            aria-required="true"
-                            rows="10"
-                        />
-
-                        <x-shop::form.control-group.error control-name="message" />
-                    </x-shop::form.control-group>
-
-                    <!-- Captcha -->
-                    @if (core()->getConfigData('customer.captcha.credentials.status'))
-                        <x-shop::form.control-group class="mt-5">
-                            {!! \Webkul\Customer\Facades\Captcha::render() !!}
-
-                            <x-shop::form.control-group.error control-name="g-recaptcha-response" />
-                        </x-shop::form.control-group>
-                    @endif
-
-                    <!-- Submit Button -->
-                    <div class="mt-8 flex flex-wrap items-center gap-9 max-sm:justify-center max-sm:text-center">
-                        <button
-                            class="primary-button m-0 mx-auto block w-full max-w-[374px] rounded-2xl px-11 py-4 text-center text-base max-md:max-w-full max-md:rounded-lg max-md:py-3 max-sm:py-1.5 ltr:ml-0 rtl:mr-0"
-                            type="submit"
-                        >
-                            @lang('shop::app.home.contact.submit')
-                        </button>
-                    </div>
-                </x-shop::form>
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                    href="{{ route('shop.home.index') }}"
+                    class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-base shadow-lg shadow-blue-500/25 transition-all duration-200 transform hover:-translate-y-0.5"
+                >
+                    <svg class="w-5 h-5 ltr:mr-2 rtl:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Return to Home Page
+                </a>
             </div>
-		</div>
-    </div>
 
-    @push('scripts')
-        {!! \Webkul\Customer\Facades\Captcha::renderJS() !!}
-    @endpush
+        </div>
+    </div>
 </x-shop::layouts>

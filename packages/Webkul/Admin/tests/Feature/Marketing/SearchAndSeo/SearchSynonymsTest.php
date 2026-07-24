@@ -43,7 +43,7 @@ it('should store the newly created search synonyms', function () {
             [
                 'terms' => $term,
                 'name' => $name,
-            ],
+            ], 
         ],
     ]);
 });
